@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fashion Paglu — Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="admin-header"><a href="index.html">← Fashion Paglu</a><strong>ADMIN PANEL</strong><span>Product Manager</span></header>
+  <main class="admin-shell">
+    <section class="intro"><p>FASHION PAGLU</p><h1>Manage your products.</h1><span>Add products here later without editing the shop code.</span></section>
+    <section class="stats"><div><small>PRODUCTS</small><b id="productCount">0</b></div><div><small>STATUS</small><b>READY</b></div><div><small>STORE</small><b>LIVE</b></div></section>
+    <section class="panel">
+      <div class="panel-head"><div><p>PRODUCT MANAGER</p><h2>Add a product</h2></div><span class="status">FRONT-END READY</span></div>
+      <form id="productForm">
+        <div class="field"><label>Product name</label><input id="name" required placeholder="e.g. Elegant Pink Kurti Set"></div>
+        <div class="two"><div class="field"><label>Price (₹)</label><input id="price" type="number" min="0" required placeholder="999"></div><div class="field"><label>Category</label><select id="category"><option>Kurtis</option><option>3-Piece Sets</option><option>New Arrivals</option><option>Best Sellers</option></select></div></div>
+        <div class="field"><label>Product image URL</label><input id="image" type="url" placeholder="https://..."><small>Temporary field — real image upload will be connected with storage in the backend phase.</small></div>
+        <div class="field"><label>Sizes</label><div class="checks"><label><input type="checkbox" value="S"> S</label><label><input type="checkbox" value="M" checked> M</label><label><input type="checkbox" value="L"> L</label><label><input type="checkbox" value="XL"> XL</label><label><input type="checkbox" value="XXL"> XXL</label></div></div>
+        <div class="field"><label>Description</label><textarea id="description" rows="4" placeholder="Product description"></textarea></div>
+        <button class="primary" type="submit">SAVE PRODUCT <span>→</span></button>
+      </form>
+    </section>
+    <section class="panel"><div class="panel-head"><div><p>CATALOG</p><h2>Products added on this device</h2></div></div><div id="catalog" class="catalog"><div class="empty">No products added yet.</div></div></section>
+    <p class="warning">This is the first admin-panel foundation. Products currently save only in this browser. The next backend step will add secure admin login, cloud image storage and a shared database so published products appear for every customer.</p>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
