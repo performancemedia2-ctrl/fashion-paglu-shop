@@ -4,74 +4,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Fashion Paglu — elegant 3-piece kurti sets.">
-  <title>Fashion Paglu | Elegant Kurti Sets</title>
+  <title>Fashion Paglu | Women's Ethnic Wear</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="topbar">FASHION PAGLU • WOMEN'S ETHNIC WEAR</div>
+
   <header class="site-header">
     <a class="logo" href="#home">Fashion <span>Paglu</span></a>
     <nav>
       <a href="#home">Home</a>
-      <a href="#collection">Collection</a>
+      <a href="#collection">Shop</a>
+      <a href="#details">Details</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
     </nav>
-    <a class="bag" href="#collection">Bag <span>0</span></a>
+    <a class="bag" href="#collection" aria-label="Shopping bag">Bag <span id="bagCount">0</span></a>
   </header>
 
   <main id="home">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">FASHION PAGLU • NEW COLLECTION</p>
-        <h1>Style that feels<br><em>beautifully you.</em></h1>
-        <p class="hero-text">Discover elegant 3-piece kurti sets made for effortless, everyday fashion.</p>
-        <a class="button" href="#collection">SHOP THE LOOK</a>
+        <p class="eyebrow">THE NEW EDIT</p>
+        <h1>Everyday elegance,<br><em>made effortless.</em></h1>
+        <p class="hero-text">A complete 3-piece kurti set designed to bring colour, comfort and a polished look together.</p>
+        <a class="button" href="#collection">SHOP THE LOOK <span>→</span></a>
         <div class="trust-row"><span>✓ COD Available</span><span>✓ Kurti • Pant • Dupatta</span></div>
       </div>
       <div class="hero-card">
-        <img src="786656484_1089014850242842_1424565845013368971_n.jpg" alt="Fashion Paglu pink kurti set" class="hero-product-image">
+        <img src="786656484_1089014850242842_1424565845013368971_n.jpg" alt="Pink Fashion Paglu kurti set" class="hero-product-image">
         <div class="price-tag"><small>COMPLETE SET</small><strong>₹999</strong></div>
       </div>
     </section>
 
-    <section class="intro" id="collection">
-      <p class="eyebrow">THE COLLECTION</p>
-      <h2>Made to be noticed.</h2>
-      <p>One beautiful look. Three perfect pieces.</p>
+    <section class="shop-heading" id="collection">
+      <div><p class="eyebrow">SHOP THE COLLECTION</p><h2>One look. Three pieces.</h2></div>
+      <p>Designed to be easy to wear and easy to style.</p>
     </section>
 
-    <section class="product-grid">
-      <article class="product-card">
-        <div class="product-image">
-          <img src="786656484_1089014850242842_1424565845013368971_n.jpg" alt="Fashion Paglu pink kurti set front view">
-          <span class="badge">NEW</span>
+    <section class="product-wrap">
+      <article class="product-card" id="details">
+        <div class="product-visual">
+          <div class="product-main"><img id="mainProductImage" src="786656484_1089014850242842_1424565845013368971_n.jpg" alt="Pink kurti set front view"></div>
+          <div class="thumbs" aria-label="Product images">
+            <button class="thumb active" data-image="786656484_1089014850242842_1424565845013368971_n.jpg"><img src="786656484_1089014850242842_1424565845013368971_n.jpg" alt="Front view"></button>
+            <button class="thumb" data-image="736225140_2574748992990393_1213874851290949820_n.jpg"><img src="736225140_2574748992990393_1213874851290949820_n.jpg" alt="Side view"></button>
+            <button class="thumb" data-image="790930401_1851140159583548_4862133159467574336_n.jpg"><img src="790930401_1851140159583548_4862133159467574336_n.jpg" alt="Back view"></button>
+          </div>
         </div>
-        <div class="product-gallery">
-          <img src="786656484_1089014850242842_1424565845013368971_n.jpg" alt="Front view">
-          <img src="736225140_2574748992990393_1213874851290949820_n.jpg" alt="Side view">
-          <img src="790930401_1851140159583548_4862133159467574336_n.jpg" alt="Back view">
+        <div class="product-info">
+          <p class="eyebrow">FASHION PAGLU • FEATURED</p>
+          <h2>Elegant Pink Kurti Set</h2>
+          <p class="subline">Kurti • Pant • Dupatta</p>
+          <div class="rating"><span>★★★★★</span> <small>Complete 3-piece look</small></div>
+          <div class="product-price">₹999 <small>COD available</small></div>
+          <p class="description">A vibrant pink ethnic set with coordinated printed details, designed as a complete look from kurti to dupatta.</p>
+          <div class="sizes-title"><strong>Select Size</strong><span>Size guide</span></div>
+          <div class="sizes"><button>S</button><button>M</button><button>L</button><button>XL</button><button>XXL</button></div>
+          <button class="buy-button" id="addBag">ADD TO BAG <span>→</span></button>
+          <p class="note">Secure your order with Cash on Delivery. Payment options can be added later.</p>
         </div>
-        <div class="product-info"><div><h3>Elegant Kurti Set</h3><p>Kurti • Pant • Dupatta</p></div><strong>₹999</strong></div>
-        <a class="outline-button" href="https://wa.me/?text=Hi%20Fashion%20Paglu%2C%20I%20want%20to%20order%20the%20Elegant%20Kurti%20Set%20for%20%E2%82%B9999." target="_blank" rel="noopener">ORDER ON WHATSAPP</a>
       </article>
     </section>
 
-    <section class="about" id="about">
-      <div><p class="eyebrow">THE PAGLU WAY</p><h2>Simple. Elegant.<br>Made for you.</h2></div>
-      <p>Fashion Paglu brings together modern styling and timeless Indian wear — so getting dressed can feel effortless and special.</p>
+    <section class="benefits">
+      <div><span>01</span><h3>Complete Look</h3><p>Kurti, pant and dupatta together.</p></div>
+      <div><span>02</span><h3>Easy Ordering</h3><p>Simple shopping experience on mobile.</p></div>
+      <div><span>03</span><h3>COD Available</h3><p>Convenient cash-on-delivery option.</p></div>
     </section>
 
-    <section class="contact" id="contact">
-      <p class="eyebrow">READY TO SHOP?</p>
-      <h2>Your next favourite look is waiting.</h2>
-      <a class="button" href="#collection">EXPLORE COLLECTION</a>
+    <section class="about" id="about">
+      <div><p class="eyebrow">THE PAGLU WAY</p><h2>Style that feels<br>like your own.</h2></div>
+      <p>Fashion Paglu is about making everyday Indian wear feel fresh, feminine and effortless — with complete looks that are easy to discover and easy to wear.</p>
+    </section>
+
+    <section class="final-cta">
+      <p class="eyebrow">FASHION PAGLU</p>
+      <h2>Find a look worth<br>coming back to.</h2>
+      <a class="button" href="#collection">EXPLORE THE LOOK <span>→</span></a>
     </section>
   </main>
 
-  <footer><strong>Fashion Paglu</strong><span>© 2026 Fashion Paglu. All rights reserved.</span><span>@paglu.wear</span></footer>
+  <footer><strong>Fashion Paglu</strong><span>© 2026 Fashion Paglu</span><span>@paglu.wear</span></footer>
   <script src="script.js"></script>
 </body>
 </html>
