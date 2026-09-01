@@ -1,0 +1,9 @@
+const KEY='fashionPagluAdminProducts';
+const form=document.getElementById('productForm');
+const catalog=document.getElementById('catalog');
+const count=document.getElementById('productCount');
+function getProducts(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch{return[]}}
+function saveProducts(items){localStorage.setItem(KEY,JSON.stringify(items));render()}
+function render(){const items=getProducts();count.textContent=items.length;if(!items.length){catalog.innerHTML='<div class="empty">No products added yet.</div>';return}catalog.innerHTML=items.map((p,i)=>`<div class="item"><div><strong>${escapeHtml(p.name)}</strong><span> · ₹${Number(p.price).toLocaleString('en-IN')} · ${escapeHtml(p.category)}</span></div><button class="delete" data-index="${i}">Delete</button></div>`).join('');document.querySelectorAll('.delete').forEach(b=>b.onclick=()=>{const a=getProducts();a.splice(Number(b.dataset.index),1);saveProducts(a)})}
+function escapeHtml(s){return String(s||'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+form.addEventListener('submit',e=>{e.preventDefault();const sizes=[...document.querySelectorAll('.checks input:checked')].map(x=>x.value);const products=getProducts();products.push({name:document.getElementById('name').value.trim(),price:document.getElementById('price').value,category:document.getElementById('category').value,image:document.getElementById('image').value,description:document.getElementById('description').value.trim(),sizes});saveProducts(products);form.reset();document.querySelector('.checks input[value="M"]').checked=true;alert('Product saved on this device.');});render();
