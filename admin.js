@@ -6,6 +6,7 @@ const loginView=document.getElementById('loginView');
 const appView=document.getElementById('appView');
 const loginForm=document.getElementById('loginForm');
 const loginError=document.getElementById('loginError');
+const loginButton=document.getElementById('loginButton');
 const logoutBtn=document.getElementById('logoutBtn');
 const form=document.getElementById('productForm');
 const catalog=document.getElementById('catalog');
@@ -45,19 +46,43 @@ async function guard(){
   }
 }
 
-loginForm.addEventListener('submit',async e=>{
-  e.preventDefault();
-  loginError.style.display='none';
+async function doLogin(){
   const email=document.getElementById('loginEmail').value.trim();
   const password=document.getElementById('loginPassword').value;
-  const {data,error}=await fpSupabase.auth.signInWithPassword({email,password});
-  if(error){showLogin('Login failed. Please check the email/password.');return;}
-  if(!(await isAuthorized(data.user))){
-    await fpSupabase.auth.signOut();
-    showLogin('Login succeeded, but this account is not authorized for admin access.');
-    return;
+  if(!email||!password)return;
+  loginButton.disabled=true;
+  loginButton.querySelector('span').textContent='…';
+  loginError.style.display='none';
+  try{
+    const {data,error}=await fpSupabase.auth.signInWithPassword({email,password});
+    if(error){showLogin('Login failed. Please check the email/password.');return;}
+    if(!(await isAuthorized(data.user))){
+      await fpSupabase.auth.signOut();
+      showLogin('Login succeeded, but this account is not authorized for admin access.');
+      return;
+    }
+    await showApp();
+  }catch(error){
+    showLogin('Login could not be completed. Please refresh and try again.');
+  }finally{
+    loginButton.disabled=false;
+    loginButton.querySelector('span').textContent='→';
   }
-  await showApp();
+}
+
+loginForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  e.stopPropagation();
+  await doLogin();
+});
+
+// Explicitly handle Enter so the browser never performs a native form navigation.
+loginForm.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){
+    e.preventDefault();
+    e.stopPropagation();
+    doLogin();
+  }
 });
 
 logoutBtn.addEventListener('click',async()=>{await fpSupabase.auth.signOut();showLogin('Logged out.');});
@@ -109,7 +134,7 @@ form.addEventListener('submit',async e=>{
   const {error}=await fpSupabase.from('products').insert(product);
   if(error){alert('Product could not be saved. Please check admin access and try again.');return;}
   form.reset();
-  document.querySelector('.checks input[value=\"M\"]').checked=true;
+  document.querySelector('.checks input[value="M"]').checked=true;
   await render();
   alert('Product saved to the Fashion Paglu database.');
 });
