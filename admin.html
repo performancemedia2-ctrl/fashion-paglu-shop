@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-  <section id="loginView" class="admin-shell" style="max-width:520px;display:none">
+  <section id="loginView" class="admin-shell" style="max-width:520px">
     <section class="panel">
       <div class="panel-head"><div><p>FASHION PAGLU</p><h2>Admin Login</h2></div></div>
       <form id="loginForm">
@@ -25,18 +25,18 @@
       <section class="intro"><p>FASHION PAGLU</p><h1>Manage your products.</h1><span>Add products here later without editing the shop code.</span></section>
       <section class="stats"><div><small>PRODUCTS</small><b id="productCount">0</b></div><div><small>STATUS</small><b>READY</b></div><div><small>STORE</small><b>LIVE</b></div></section>
       <section class="panel">
-        <div class="panel-head"><div><p>PRODUCT MANAGER</p><h2>Add a product</h2></div><span class="status">FRONT-END READY</span></div>
+        <div class="panel-head"><div><p>PRODUCT MANAGER</p><h2>Add a product</h2></div><span class="status">DATABASE CONNECTED</span></div>
         <form id="productForm">
           <div class="field"><label>Product name</label><input id="name" required placeholder="e.g. Elegant Pink Kurti Set"></div>
           <div class="two"><div class="field"><label>Price (₹)</label><input id="price" type="number" min="0" required placeholder="999"></div><div class="field"><label>Category</label><select id="category"><option>Kurtis</option><option>3-Piece Sets</option><option>New Arrivals</option><option>Best Sellers</option></select></div></div>
-          <div class="field"><label>Product image URL</label><input id="image" type="url" placeholder="https://..."><small>Temporary field — real image upload will be connected with storage in the backend phase.</small></div>
+          <div class="field"><label>Product image URL</label><input id="image" type="url" placeholder="https://..."><small>For now, use an image URL. Image upload/storage will be added next.</small></div>
           <div class="field"><label>Sizes</label><div class="checks"><label><input type="checkbox" value="S"> S</label><label><input type="checkbox" value="M" checked> M</label><label><input type="checkbox" value="L"> L</label><label><input type="checkbox" value="XL"> XL</label><label><input type="checkbox" value="XXL"> XXL</label></div></div>
           <div class="field"><label>Description</label><textarea id="description" rows="4" placeholder="Product description"></textarea></div>
           <button class="primary" type="submit">SAVE PRODUCT <span>→</span></button>
         </form>
       </section>
-      <section class="panel"><div class="panel-head"><div><p>CATALOG</p><h2>Products added on this device</h2></div></div><div id="catalog" class="catalog"><div class="empty">No products added yet.</div></div></section>
-      <p class="warning">Authentication is protected by Supabase. Products are still stored only in this browser until the database phase is connected.</p>
+      <section class="panel"><div class="panel-head"><div><p>CATALOG</p><h2>Products in database</h2></div></div><div id="catalog" class="catalog"><div class="empty">Loading products...</div></div></section>
+      <p class="warning">Products are now stored in Supabase. Only authorized admin accounts can add or delete products.</p>
     </main>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
